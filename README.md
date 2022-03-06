@@ -1,13 +1,13 @@
-<h1 align="center">PS4 USB HEN Flash Disk Emulator with ESP32-S2 (PS4-USB-ESP32)</h1>
+<h1 align="center">PS4 USB Flash Emulator with ESP32-S2 (PS4-USB-ESP32)</h1>
 
 <p>Small electronic board to support automatic loading HEN in PS4 with ESP32. Project using method discovered on PS4 Firmware 9.00, where user need manually plug USB flash drive in right time to load HEN. 
 
-Together with  ESP32-S2 as WebServer will PS4-USB-ESP32 emulate USB drive, causing automatic loading HEN in desired time without user interaction.
+Together with  ESP32-S2 as WebServer will PS4-USB-ESP32 emulate USB Flash drive, causing automatic loading HEN in desired time without user interaction.
 
-Project is modification of "PS4 Server 9.00" and "ESP8266 Control device", aim is to share design data of small PCB to create device for wide  usage of automatic loading and implement basic electronic protection for PS4.
+Project is modification of "PS4 Server 9.00" and "ESP8266 Control device", aim is to share design data of small PCB and firmware for the ESP32-S2 to create device for wide  usage of automatic loading and implement basic electronic protection for PS4.
 
 Differents to standard market ESP32-S2 eval kits are:
-- ESP32-S2 plan to use is in version with 16MBytes (can be soldered ESP32-S2 with 4Mbytes)
+- ESP32-S2 plan to use is in version with 16MBytes (but can be use ESP32-S2 with 4Mbytes)
 - MicroSD card in 4bit mode (can be configured to SPI mode)
 - Direct USB OTG connection to emulate Flash Drive
 - ESD protections and RGB LED 
@@ -19,6 +19,7 @@ Differents to standard market ESP32-S2 eval kits are:
 ## Project requirements
 - Micro SD card (prefered 4Gbyte, standard SDHC formated as FAT32)
 - USB 2.0 data cable ( is recommend to not exceed length of 1.8M )
+- Binary loader for the ESP32-S2
 
 ## Links
 PS4-USB-HEN32 needs firmware to run WebServer with DHCP/DNS service, you can programm device either by 
@@ -37,14 +38,16 @@ To program board, you need
 - Plug PS4-USB-HEN32 with micro USB cable to PS4. Due Webserver/DNS capability  web page with HEN  can be access through 'User Guide/Helpful Info' in PS4  <i>(required successful Wifi connection to PS4-USB-HEN32, password '12345678'</i> )
 
 ## Pictures
-3D Visualization
+
+3D Picture of PCBA 
+
 ![PS4-USB-HEN32](/screenshots/ps4-usb-hen-esp32.png)
 
 
 ## Project structure
 
 - PCB Design data are developed in KiCad 5.1.10
-- directory <b>bom</b> contains JLCPCB compatible BOM 
+- directory <b>bom</b> contains JLCPCB compatible BOM,after product check later full BOM 
 - directory <b>gerber</b> contains gerbers files with pick-up place file. Components are located only in TOP layer. 
 - directory <b>libs </b> contains project specific  library
 
