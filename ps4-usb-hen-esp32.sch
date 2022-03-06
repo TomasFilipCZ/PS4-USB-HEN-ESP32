@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "ESP32-S2 USB HEN Emulation + SD card Webserver"
+Title "ESP32-S2 USB HEN Emulation with SD card support"
 Date "2022-01-31"
-Rev "1.0"
+Rev "1.1"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -728,31 +728,29 @@ Wire Wire Line
 $Comp
 L 0Keyhas_R0603_Basic:10k R5
 U 1 1 620146B4
-P 2600 4450
-F 0 "R5" H 2659 4496 50  0000 L CNN
-F 1 "10k" H 2659 4405 50  0000 L CNN
-F 2 "R_0603_1608Metric" V 2530 4450 50  0001 C CNN
-F 3 "https://datasheet.lcsc.com/szlcsc/Uniroyal-Elec-0603WAF1002T5E_C25804.pdf" V 2600 4450 50  0001 C CNN
-F 4 "C25804" V 2600 4450 50  0001 C CNN "LCSC"
-	1    2600 4450
+P 4150 6650
+F 0 "R5" H 4209 6696 50  0000 L CNN
+F 1 "10k" H 4209 6605 50  0000 L CNN
+F 2 "R_0603_1608Metric" V 4080 6650 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/szlcsc/Uniroyal-Elec-0603WAF1002T5E_C25804.pdf" V 4150 6650 50  0001 C CNN
+F 4 "C25804" V 4150 6650 50  0001 C CNN "LCSC"
+	1    4150 6650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+3.3V #PWR022
 U 1 1 6201D399
-P 2600 4200
-F 0 "#PWR022" H 2600 4050 50  0001 C CNN
-F 1 "+3.3V" H 2615 4373 50  0000 C CNN
-F 2 "" H 2600 4200 50  0001 C CNN
-F 3 "" H 2600 4200 50  0001 C CNN
-	1    2600 4200
+P 4150 6400
+F 0 "#PWR022" H 4150 6250 50  0001 C CNN
+F 1 "+3.3V" H 4165 6573 50  0000 C CNN
+F 2 "" H 4150 6400 50  0001 C CNN
+F 3 "" H 4150 6400 50  0001 C CNN
+	1    4150 6400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2600 4200 2600 4350
-Wire Wire Line
-	2600 4550 2600 4800
-Text Label 2650 4800 0    50   ~ 0
+	4150 6400 4150 6450
+Text Label 4200 7000 0    50   ~ 0
 GPIO18
 Wire Wire Line
 	3900 3750 3450 3750
@@ -1138,8 +1136,6 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3450 4425 50  0001 
 	1    3350 4800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2600 4800 3050 4800
 $Comp
 L power:GND #PWR06
 U 1 1 620D3E17
@@ -1154,19 +1150,6 @@ $EndComp
 Wire Wire Line
 	3350 5100 3350 5250
 $Comp
-L power:+3.3V #PWR04
-U 1 1 620D88EE
-P 3350 4250
-F 0 "#PWR04" H 3350 4100 50  0001 C CNN
-F 1 "+3.3V" H 3365 4423 50  0000 C CNN
-F 2 "" H 3350 4250 50  0001 C CNN
-F 3 "" H 3350 4250 50  0001 C CNN
-	1    3350 4250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3350 4250 3350 4350
-$Comp
 L Connector:Micro_SD_Card_Det J1
 U 1 1 61F7FD4E
 P 8350 4150
@@ -1180,37 +1163,119 @@ $EndComp
 $Comp
 L 0Keyhas_C0603_Basic:100nF C9
 U 1 1 61F8218F
-P 3600 4350
-F 0 "C9" H 3692 4396 50  0000 L CNN
-F 1 "100nF" V 3550 4400 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3638 4200 50  0001 C CNN
-F 3 "https://datasheet.lcsc.com/szlcsc/YAGEO-CC0603KRX7R9BB104_C14663.pdf" V 3600 4350 50  0001 C CNN
-F 4 "C14663" V 3600 4350 50  0001 C CNN "LCSC"
-	1    3600 4350
-	0    1    1    0   
+P 2450 2750
+F 0 "C9" H 2542 2796 50  0000 L CNN
+F 1 "100nF" V 2400 2800 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2488 2600 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/szlcsc/YAGEO-CC0603KRX7R9BB104_C14663.pdf" V 2450 2750 50  0001 C CNN
+F 4 "C14663" V 2450 2750 50  0001 C CNN "LCSC"
+	1    2450 2750
+	-1   0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR016
 U 1 1 61F862B9
-P 3850 4400
-F 0 "#PWR016" H 3850 4150 50  0001 C CNN
-F 1 "GND" H 3855 4227 50  0000 C CNN
-F 2 "" H 3850 4400 50  0001 C CNN
-F 3 "" H 3850 4400 50  0001 C CNN
-	1    3850 4400
+P 2450 3050
+F 0 "#PWR016" H 2450 2800 50  0001 C CNN
+F 1 "GND" H 2455 2877 50  0000 C CNN
+F 2 "" H 2450 3050 50  0001 C CNN
+F 3 "" H 2450 3050 50  0001 C CNN
+	1    2450 3050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3700 4350 3850 4350
-Wire Wire Line
-	3850 4350 3850 4400
-Wire Wire Line
-	3500 4350 3350 4350
-Connection ~ 3350 4350
-Wire Wire Line
-	3350 4350 3350 4500
 Text Notes 7100 7000 0    87   ~ 0
 ESP32-S2 for USB HEN 9.00 Flash Disk Emulation\nwith SDCard connected in 4bit mode\nESP32-S2-16MBytes preferred
 Text Notes 4950 7700 0    50   ~ 0
-Credits:\nhttps://github.com/Ralim - SD card slots\nhttps://github.com/madworm - mouse-bite-2mm\nand others who is not explicitly written here
+Credits:\nhttps://github.com/Ralim - SD card slots\nhttps://github.com/madworm - mouse-bite-2mm\n
+$Comp
+L 0Keyhas_transistors_N:2N7002 Q1
+U 1 1 620DCBBB
+P 4700 6950
+F 0 "Q1" V 4950 6950 50  0000 C CNN
+F 1 "2N7002" V 5041 6950 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4900 6875 50  0001 L CIN
+F 3 "https://www.diodes.com/assets/Datasheets/ds30896.pdf" H 4700 6950 50  0001 L CNN
+F 4 "C8545" V 5132 6950 50  0000 C CNN "JLCSMT"
+	1    4700 6950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4500 7050 4150 7050
+Wire Wire Line
+	4150 6750 4150 7050
+Wire Wire Line
+	4900 7050 5000 7050
+Text Label 5050 7050 0    50   ~ 0
+GPIO18_5V
+$Comp
+L 0Keyhas_R0603_Basic:10k R3
+U 1 1 620EF64F
+P 5000 6700
+F 0 "R3" H 5059 6746 50  0000 L CNN
+F 1 "10k" H 5059 6655 50  0000 L CNN
+F 2 "R_0603_1608Metric" V 4930 6700 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/szlcsc/Uniroyal-Elec-0603WAF1002T5E_C25804.pdf" V 5000 6700 50  0001 C CNN
+F 4 "C25804" V 5000 6700 50  0001 C CNN "LCSC"
+	1    5000 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR035
+U 1 1 620F0437
+P 5000 6400
+F 0 "#PWR035" H 5000 6250 50  0001 C CNN
+F 1 "+5V" H 5015 6573 50  0000 C CNN
+F 2 "" H 5000 6400 50  0001 C CNN
+F 3 "" H 5000 6400 50  0001 C CNN
+	1    5000 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 6400 5000 6600
+Wire Wire Line
+	5000 6800 5000 7050
+Connection ~ 5000 7050
+Wire Wire Line
+	5000 7050 5450 7050
+Wire Wire Line
+	3050 4800 2600 4800
+Text Label 2650 4800 0    50   ~ 0
+GPIO18_5V
+Wire Wire Line
+	2450 2850 2450 3050
+$Comp
+L power:+3.3V #PWR0106
+U 1 1 621333FB
+P 2450 2500
+F 0 "#PWR0106" H 2450 2350 50  0001 C CNN
+F 1 "+3.3V" H 2465 2673 50  0000 C CNN
+F 2 "" H 2450 2500 50  0001 C CNN
+F 3 "" H 2450 2500 50  0001 C CNN
+	1    2450 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 2500 2450 2650
+Wire Wire Line
+	3350 4350 3350 4500
+$Comp
+L power:+5V #PWR04
+U 1 1 62100ACC
+P 3350 4350
+F 0 "#PWR04" H 3350 4200 50  0001 C CNN
+F 1 "+5V" H 3365 4523 50  0000 C CNN
+F 2 "" H 3350 4350 50  0001 C CNN
+F 3 "" H 3350 4350 50  0001 C CNN
+	1    3350 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 6450 4700 6450
+Wire Wire Line
+	4700 6450 4700 6750
+Connection ~ 4150 6450
+Wire Wire Line
+	4150 6450 4150 6550
+Text Notes 6050 3500 0    50   ~ 0
+ESP32-S2 not support EMMC library, only SPI\n\n
 $EndSCHEMATC
